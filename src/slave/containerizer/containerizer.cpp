@@ -285,6 +285,7 @@ map<string, string> executorEnvironment(
   env["MESOS_SLAVE_ID"] = slaveId.value();
   env["MESOS_SLAVE_PID"] = stringify(slavePid);
   env["MESOS_CHECKPOINT"] = checkpoint ? "1" : "0";
+  env["MESOS_TASK_ID"] = executor.taskId.value();
 
   if (checkpoint) {
     env["MESOS_RECOVERY_TIMEOUT"] = stringify(recoveryTimeout);
